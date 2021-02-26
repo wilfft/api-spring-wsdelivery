@@ -32,8 +32,8 @@ public class Ordem implements Serializable {
 
     }
 
-    public Ordem(Long id, String endereco, Double latitude, Double longitude, Instant momento, OrdemStatus status) {
-        this.id = id;
+    public Ordem(String endereco, Double latitude, Double longitude, Instant momento, OrdemStatus status) {
+
         this.endereco = endereco;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -46,9 +46,6 @@ public class Ordem implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getEndereco() {
         return endereco;
