@@ -21,7 +21,7 @@ public class OrdemService {
 
     @Transactional(readOnly = true) //garantir que fecha a conexao
     public List<OrdemDTO> acheTodos() {
-        List<Ordem> lista = ordemRepositorio.findAll();
+        List<Ordem> lista = ordemRepositorio.findOrdemWithProdutos();
         return lista.stream().map(ordem -> new OrdemDTO(ordem)).collect(Collectors.toList());
 
     }
