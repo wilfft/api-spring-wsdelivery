@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.transaction.Transactional;
 import java.net.URI;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class OrdemControlador {
         return ResponseEntity.ok().body(lista);
     }
 
+
     @PostMapping
     public ResponseEntity<OrdemDTO> novaOrdem(@RequestBody OrdemDTO dto) {
         dto = ordemService.inserir(dto);
@@ -34,4 +36,11 @@ public class OrdemControlador {
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+
+    @PutMapping("/{id}/entregue")
+    public ResponseEntity<OrdemDTO> foiEntregue(@PathVariable Long id) {
+        OrdemDTO dto = ordemService.foiEntregue(id);
+        return ResponseEntity.ok().body(dto);
+    }
 }
+

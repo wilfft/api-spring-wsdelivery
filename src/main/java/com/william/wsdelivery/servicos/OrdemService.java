@@ -50,4 +50,12 @@ public class OrdemService {
         ordem = ordemRepositorio.save(ordem);
         return new OrdemDTO(ordem);
     }
+
+    @Transactional
+    public OrdemDTO foiEntregue(Long id) {
+        Ordem ordem = ordemRepositorio.getOne(id); //o getone nao vai pro banco de dados, posso pegar os dados e alterar antes de salvar
+        ordem.setStatus(OrdemStatus.ENTREGUE);
+        ordem = ordemRepositorio.save(ordem);
+        return new OrdemDTO(ordem);
+    }
 }
