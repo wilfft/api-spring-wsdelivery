@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.william</groupId>
-    <artifactId>ws-delivery</artifactId>
+    <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ws-delivery</name>
     <description>Demo project for Spring Boot</description>
