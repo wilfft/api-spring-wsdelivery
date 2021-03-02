@@ -21,9 +21,10 @@ public class Ordem implements Serializable {
     private Double longitude;
     private Instant momento;
     private OrdemStatus status;
+private Double total;
 
     @ManyToMany
-    @JoinTable(name = "TB_ORDEM_PEDIDO",
+    @JoinTable(name = " TB_ORDEM_PEDIDO",
             joinColumns = @JoinColumn(name = "ORDEM_ID"),
             inverseJoinColumns = @JoinColumn(name = "PRODUTO_ID"))
     private Set<Produto> produtos = new HashSet<>();
@@ -39,6 +40,7 @@ public class Ordem implements Serializable {
         this.longitude = longitude;
         this.momento = momento;
         this.status = status;
+        this.total=total;
     }
 
 
@@ -87,6 +89,18 @@ public class Ordem implements Serializable {
         this.status = status;
     }
 
+
+    public Double getTotal(){
+double soma = 0.0;
+for (Produto p: produtos){
+
+    soma+= p.getPreco();
+
+}
+return         soma;
+
+
+    }
     public Set<Produto> getProdutos() {
         return produtos;
     }
