@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/ordens")
-
 public class OrdemControlador {
 
     private OrdemService ordemService;
@@ -21,8 +20,9 @@ public class OrdemControlador {
         this.ordemService = ordemService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<OrdemDTO>> acheTodos() {
+        System.out.println("ERRO");
         List<OrdemDTO> lista = ordemService.acheTodos();
         return ResponseEntity.ok().body(lista);
     }
