@@ -18,7 +18,7 @@ public class ProdutoService {
         this.produtoRepositorio = produtoRepositorio;
     }
 
-    @Transactional(readOnly = true) //garantir que fecha a conexao
+    @Transactional(readOnly = true) //garantir que fecha a conexao, boas praticas
     public List<ProdutoDTO> acheTodos() {
         List<Produto> lista = produtoRepositorio.findAllByOrderByNomeAsc();
         return lista.stream().map(produto -> new ProdutoDTO(produto)).collect(Collectors.toList());
