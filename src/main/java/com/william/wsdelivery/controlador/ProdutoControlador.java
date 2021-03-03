@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/produtos")
-
 public class ProdutoControlador {
 
     private ProdutoService produtoService;
