@@ -27,11 +27,6 @@ public class OrdemControlador {
         List<OrdemDTO> lista = ordemService.acheTodos();
         return ResponseEntity.ok().body(lista);
     }
-    @GetMapping("/teste")
-    public String  teste() {
-
-        return "testando rota teste";
-    }
 
     @PostMapping
     public ResponseEntity<OrdemDTO> novaOrdem(@RequestBody OrdemDTO dto) {
