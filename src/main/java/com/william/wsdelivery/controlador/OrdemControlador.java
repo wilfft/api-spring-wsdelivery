@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/pedidos")
+@RequestMapping(value = "/ordens")
 public class OrdemControlador {
 
     private OrdemService ordemService;
@@ -27,7 +27,11 @@ public class OrdemControlador {
         List<OrdemDTO> lista = ordemService.acheTodos();
         return ResponseEntity.ok().body(lista);
     }
+    @GetMapping("/teste")
+    public String  teste() {
 
+        return "testando rota teste";
+    }
 
     @PostMapping
     public ResponseEntity<OrdemDTO> novaOrdem(@RequestBody OrdemDTO dto) {
